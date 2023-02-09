@@ -4,8 +4,10 @@ const { env } = require('process');
 const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}` :
   env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'http://localhost:16898';
 
+// Add our Controllers into here from DotNet API
 const context =  [
   "/weatherforecast",
+  "/item",
 ];
 
 module.exports = function(app) {

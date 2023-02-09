@@ -3,7 +3,7 @@ using Ranker.Models;
 
 namespace Ranker.Controllers;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 public class ItemController : ControllerBase
 {
