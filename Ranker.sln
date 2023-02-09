@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rannker", "Rannker\Rannker.csproj", "{6379E2A7-142C-4F7B-8AF8-F9ED00E54A0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6379E2A7-142C-4F7B-8AF8-F9ED00E54A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6379E2A7-142C-4F7B-8AF8-F9ED00E54A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6379E2A7-142C-4F7B-8AF8-F9ED00E54A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6379E2A7-142C-4F7B-8AF8-F9ED00E54A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8AC257C-9AF3-4334-BE1C-FD31EFA10E62}
+	EndGlobalSection
+EndGlobal
