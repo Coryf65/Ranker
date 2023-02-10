@@ -28,7 +28,7 @@ const RankingGrid = ({ items, imgArr }) => {
 		let label = "";
 		const numCells = 5; // mess with this
 
-		for (var a = 0; a < numCells; a++) {
+		for (var a = 1; a <= numCells; a++) {
 			rankNum = (a === 1) ? 0 : (numCells * (rowNumber - 1)) + a - rankNum;
 		}
 
@@ -65,9 +65,10 @@ const RankingGrid = ({ items, imgArr }) => {
 	}
 
 	function createCellsForRows() {
+
 		const maxRows = 8;
 
-		for (var row = 1; row < maxRows; row++) {
+		for (var row = 1; row <= maxRows; row++) {
 			createCellsForRow(row);
 		}
 	}
@@ -95,8 +96,6 @@ const RankingGrid = ({ items, imgArr }) => {
 			{createRankingGrid()}
 		</div>
 		)
-
-
 }
 
 export default RankingGrid;

@@ -13,6 +13,15 @@ code {
   border-color: #1861ac;
 }
 
+body {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+main {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
 
 .items-not-ranked {
 	display: flex;
