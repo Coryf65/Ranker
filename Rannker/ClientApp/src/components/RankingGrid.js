@@ -14,7 +14,8 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 		if (rankNum > 0) {
 			var item = items.find(o => o.ranking === rankNum);
 			cellCollection.push(<div id={`rank-${rankNum}`} onDrop={drop} onDragOver={allowDrop} className="rank-cell">
-				{(item != null) ? <img id={`item-${item.id}`} src={imgArr.find(o => o.id === item.imageId)?.image} draggable="true" onDragStart={drag} />
+				{(item != null)
+					? <img id={`item-${item.id}`} src={imgArr.find(o => o.id === item.imageId)?.image} draggable="true" onDragStart={drag} />
 					: null}
 			</div>);
 		} else {
@@ -32,7 +33,11 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 		const numCells = 5; // mess with this
 
 		for (var a = 1; a <= numCells; a++) {
-			rankNum = (a === 1) ? 0 : (numCells * (rowNumber - 1)) + a - rankNum;
+			//rankNum = (a === 1) ? 0 : (numCells * (rowNumber - 1)) + a - rowNumber;
+			rankNum = (a === 1) ? 0 : (numCells * (rowNumber - 1)) + a - rowNumber;
+			console.log("{a}", a);
+			console.log("{numCells}", numCells);
+			console.log("{rowNumber}", rowNumber);
 		}
 
 		if (rowNumber === 1) {
@@ -69,7 +74,7 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 
 	function createCellsForRows() {
 
-		const maxRows = 4;
+		const maxRows = 8;
 
 		for (var row = 1; row <= maxRows; row++) {
 			createCellsForRow(row);

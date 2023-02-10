@@ -1,5 +1,4 @@
 ﻿import React, { useEffect, useState } from 'react';
-import MovieImageArr from "./MovieImages.js";
 import RankingGrid from "./RankingGrid"
 import ItemCollection from "./ItemCollection";
 
@@ -29,8 +28,9 @@ const RankItems = ({ items, setItems, dataType, imgArr, localStorageKey }) => {
 		}
 		if (targetElement.childNodes.length === 0) {
 			var data = parseInt(ev.dataTransfer.getData("text").substring(5));
-			const transformedCollection = items.map((item) => (item.id === parseInt(data)) ?
-				{ ...item, ranking: parseInt(targetElement.id.substring(5)) } : { ...item, ranking: item.ranking });
+			const transformedCollection = items.map((item) => (item.id === parseInt(data))
+				? { ...item, ranking: parseInt(targetElement.id.substring(5)) }
+				: { ...item, ranking: item.ranking });
 			setItems(transformedCollection);
 		}
 	}
@@ -40,7 +40,6 @@ const RankItems = ({ items, setItems, dataType, imgArr, localStorageKey }) => {
 
 		if (items == null) {
 			getDataFromApi();
-
 		}
 
 	}, [dataType]);
@@ -60,7 +59,7 @@ const RankItems = ({ items, setItems, dataType, imgArr, localStorageKey }) => {
 			localStorage.setItem(localStorageKey, JSON.stringify(items));
 		}
 		setReload(false);
-	}, [items]);
+	}, [items])
 
 	useEffect(() => {
 		if (reload === true) {
@@ -72,10 +71,10 @@ const RankItems = ({ items, setItems, dataType, imgArr, localStorageKey }) => {
 		(items != null)?
 		<main>
 			<RankingGrid items={items} imgArr={imgArr} drag={drag} allowDrop={allowDrop} drop={drop} />
-			<ItemCollection item={items} imgArr={imgArr} drag={drag} />
-				<button onClick={Reload} style={{"margin-top":"10px"}}>Reload</button>
+			<ItemCollection items={items} drag={drag} imgArr={imgArr} />
+				<button onClick={Reload} className="reload" style={{ "margin-top": "10px" }}><span class="text">Reload</span></button>
 		</main>
-		:<main>Loading...</main>
+		: <main>Loading...</main>
 		)
 }
 

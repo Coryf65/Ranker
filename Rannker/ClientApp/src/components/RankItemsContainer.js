@@ -1,5 +1,5 @@
-﻿import { useState } from "react";
-import RankItems from "./RankItems";
+﻿import { useState } from 'react';
+import RankItems from './RankItems';
 
 const RankItemsContainer = ({ dataType, imgArr }) => {
 	const movieLocalStorageKey = "movies";

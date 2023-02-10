@@ -1,13 +1,16 @@
-﻿import Item from "./Item";
+﻿import Item from './Item';
 
-const ItemCollection = ({items, imgArr, drag}) => {
-	<div className="items-not-ranked">
+const ItemCollection = ({ items, drag, imgArr }) => {
+
+	return (
+		<div className="items-not-ranked">
 		{
 			items.map((item) => (item.ranking === 0)
-				? <Item item={item} drag={drag} itemImgObj={imgArr.find(o => o.id === item.imageId)} />
+				? <Item key={`item-${item.id}`} item={item} drag={drag} itemImgObj={imgArr.find(o => o.id === item.imageId)} />
 				: null)
 		}
-	</div>
+		</div>
+	)
 }
 
 export default ItemCollection;
