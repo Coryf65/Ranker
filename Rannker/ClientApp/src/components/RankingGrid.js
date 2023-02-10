@@ -1,5 +1,5 @@
 ﻿
-const RankingGrid = ({ items, imgArr }) => {
+const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 
 	const rankingGrid = [];
 	const cellCollectionSTier = [];
@@ -13,7 +13,10 @@ const RankingGrid = ({ items, imgArr }) => {
 	function pushCellMarkupToArr(cellCollection, rankNum, rowLabel) {
 		if (rankNum > 0) {
 			var item = items.find(o => o.ranking === rankNum);
-			cellCollection.push(<div id={`rank-${rankNum}`} className="rank-cell"></div>);
+			cellCollection.push(<div id={`rank-${rankNum}`} onDrop={drop} onDragOver={allowDrop} className="rank-cell">
+				{(item != null) ? <img id={`item-${item.id}`} src={imgArr.find(o => o.id === item.imageId)?.image} draggable="true" onDragStart={drag} />
+					: null}
+			</div>);
 		} else {
 			cellCollection.push(<div className="row-label">
 				<h4>{rowLabel}</h4>
@@ -36,27 +39,27 @@ const RankingGrid = ({ items, imgArr }) => {
 			currCollection = cellCollectionSTier;
 			label = "S Tier";
 		}
-		else if (rowNumber === 3) {
+		else if (rowNumber === 2) {
 			currCollection = cellCollectionATier;
 			label = "A Tier";
 		}
-		else if (rowNumber === 4) {
+		else if (rowNumber === 3) {
 			currCollection = cellCollectionBTier;
 			label = "B Tier";
 		}
-		else if (rowNumber === 5) {
+		else if (rowNumber === 4) {
 			currCollection = cellCollectionCTier;
 			label = "C Tier";
 		}
-		else if (rowNumber === 6) {
+		else if (rowNumber === 5) {
 			currCollection = cellCollectionDTier;
 			label = "D Tier";
 		}
-		else if (rowNumber === 7) {
+		else if (rowNumber === 6) {
 			currCollection = cellCollectionFTier;
 			label = "F Tier";
 		}
-		else if (rowNumber === 8) {
+		else if (rowNumber === 7) {
 			currCollection = cellCollectionUTier;
 			label = "U Tier";
 		}
@@ -66,7 +69,7 @@ const RankingGrid = ({ items, imgArr }) => {
 
 	function createCellsForRows() {
 
-		const maxRows = 8;
+		const maxRows = 4;
 
 		for (var row = 1; row <= maxRows; row++) {
 			createCellsForRow(row);
