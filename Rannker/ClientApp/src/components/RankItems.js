@@ -1,13 +1,9 @@
-﻿import React, { useState, useEffect } from 'react';
-import MovieImagesArr from "./MovieImages.js";
+﻿import React, { useEffect } from 'react';
+import MovieImageArr from "./MovieImages.js";
 import RankingGrid from "./RankingGrid"
 import ItemCollection from "./ItemCollection";
 
-const RankItems = () => {
-
-	const [items, setItems] = useState([]);
-	const dataType = 1; // 1 = movies, 2 = albums
-
+const RankItems = ({ items, setItems, dataType, imgArr, localStorageKey }) => {
 
 	function drag(ev) {
 		ev.dataTransfer.setData("text", ev.target.id);
@@ -18,6 +14,7 @@ const RankItems = () => {
 	}
 
 	function drop(ev) {
+
 		ev.preventDefault();
 		const targetElement = ev.target;
 
@@ -41,13 +38,21 @@ const RankItems = () => {
 			.then(data => {
 				setItems(data);
 			})
-	}, [])
+	}, [dataType]);
+
+	useEffect(() => {
+		if (items != null) {
+			localStorage.setItem(localStorageKey, JSON.stringify(items));
+		}
+	}, [items]);
 
 	return (
+		(items != null)?
 		<main>
-			<RankingGrid items={items} imgArr={MovieImagesArr} drag={drag} allowDrop={allowDrop} drop={drop} />
-			<ItemCollection item={items} imgArr={MovieImagesArr} drag={drag} />
+			<RankingGrid items={items} imgArr={imgArr} drag={drag} allowDrop={allowDrop} drop={drop} />
+			<ItemCollection item={items} imgArr={imgArr} drag={drag} />
 		</main>
+		:<main>Loading...</main>
 		)
 }
 
