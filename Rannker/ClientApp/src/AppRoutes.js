@@ -7,18 +7,6 @@ import AlbumImageArr from "./components/AlbumImages.js";
 
 const AppRoutes = [
   {
-    index: true,
-    element: <Home />
-  },
-  {
-    path: '/counter',
-    element: <Counter />
-  },
-  {
-    path: '/fetch-data',
-    element: <FetchData />
-  },
-  {
     path: '/rank-movies',
     element: <RankItemsContainer dataType={1} imgArr={MovieImageArr} />
   },
