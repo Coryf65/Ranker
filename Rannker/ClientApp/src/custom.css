@@ -90,6 +90,7 @@ main {
 	text-align: center;
 	display: flex;
 	align-items: center;
+	border: solid red 2px;
 }
 
 .reload {

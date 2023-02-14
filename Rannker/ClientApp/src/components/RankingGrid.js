@@ -35,9 +35,22 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 		for (var a = 1; a <= numCells; a++) {
 			//rankNum = (a === 1) ? 0 : (numCells * (rowNumber - 1)) + a - rowNumber;
 			rankNum = (a === 1) ? 0 : (numCells * (rowNumber - 1)) + a - rowNumber;
-			console.log("{a}", a);
-			console.log("{numCells}", numCells);
-			console.log("{rowNumber}", rowNumber);
+
+			if (a === 1) {
+				console.log("a === 1");
+				console.log("{a}", a);
+				console.log("{numCells}", numCells);
+				console.log("{rowNumber}", rowNumber);
+			}
+
+			if (a != 1) {
+				console.log("a != 1");
+				console.log("{a}", a);
+				console.log("{numCells}", numCells);
+				console.log("{rowNumber}", rowNumber);
+				console.log("{0}", (numCells * (rowNumber - 1)) + a - rowNumber);
+			}
+
 		}
 
 		if (rowNumber === 1) {
@@ -74,7 +87,7 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 
 	function createCellsForRows() {
 
-		const maxRows = 8;
+		const maxRows = 7;
 
 		for (var row = 1; row <= maxRows; row++) {
 			createCellsForRow(row);
@@ -83,13 +96,13 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 
 
 	function createRowsForGrid() {
-		rankingGrid.push(<div className="rank-row s-tier">{cellCollectionSTier}</div>);
-		rankingGrid.push(<div className="rank-row a-tier">{cellCollectionATier}</div>);
-		rankingGrid.push(<div className="rank-row b-tier">{cellCollectionBTier}</div>);
-		rankingGrid.push(<div className="rank-row c-tier">{cellCollectionCTier}</div>);
-		rankingGrid.push(<div className="rank-row d-tier">{cellCollectionDTier}</div>);
-		rankingGrid.push(<div className="rank-row f-tier">{cellCollectionFTier}</div>);
-		rankingGrid.push(<div className="rank-row u-tier">{cellCollectionUTier}</div>);
+		rankingGrid.push(<div className="rank-row s-tier">S {cellCollectionSTier}</div>);
+		rankingGrid.push(<div className="rank-row a-tier">A {cellCollectionATier}</div>);
+		rankingGrid.push(<div className="rank-row b-tier">B {cellCollectionBTier}</div>);
+		rankingGrid.push(<div className="rank-row c-tier">C {cellCollectionCTier}</div>);
+		rankingGrid.push(<div className="rank-row d-tier">D {cellCollectionDTier}</div>);
+		rankingGrid.push(<div className="rank-row f-tier">F {cellCollectionFTier}</div>);
+		rankingGrid.push(<div className="rank-row u-tier">U {cellCollectionUTier}</div>);
 
 		return rankingGrid;
 	}
